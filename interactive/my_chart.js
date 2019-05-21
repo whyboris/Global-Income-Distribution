@@ -14,8 +14,7 @@ function create_dataset(country_code, color_index, country_name) {
     borderCapStyle: 'round',
     borderColor: colors[color_index],
     borderWidth: 5,
-    // data: DATA[country_code],
-    data: [DATA[country_code][0]], // hack for animation; originally was just `DATA`
+    data: [DATA[country_code][0]], // hack for animation, start only with 1st data point
     fill: false,
     label: country_name,
     showLine: true,
@@ -40,84 +39,6 @@ var all_data = {
   ]
 }
 
-var all_options = {
-  scales: {
-    yAxes: [{
-      id: 'y-axis-0',
-      ticks: {
-        suggestedMax: 100,
-        beginAtZero: true,
-        callback: function (value) {
-          return value + '%';
-        },
-      },
-      gridLines: {
-        lineWidth: 0.7,
-        drawBorder: true,
-        tickMarkLength: 15,
-      },
-      scaleLabel: {
-        display: true,
-        labelString: 'World Percentile',
-        fontSize: 12,
-      },
-    }],
-    xAxes: [{
-      ticks: {
-        suggestedMax: 100, 
-        beginAtZero: true,
-        callback: function (value) {
-          return value + '%';
-        },
-      },
-      gridLines: {
-        lineWidth: 0.7, 
-        drawBorder: true,
-        tickMarkLength: 15,
-      },
-      scaleLabel: {
-        display: true,
-        labelString: 'Data source: Branko Milanovic - World Income Distribution (2005)',
-        fontSize: 12,
-      }
-    }]
-  },
-  elements: {
-    point: {
-      radius: 0
-    }
-  },
-  layout: {
-    padding: {
-      left: 20,
-      right: 40,
-      top: 20,
-      bottom: 20
-    }
-  },
-  legend: {
-    position: 'right',
-    labels: {
-      boxWidth: 12,
-      padding: 30
-    }
-  },
-  title: {
-    display: true,
-    text: [
-      'World Income Distribution 2005', 
-      'Country percentile vs world income percentile',
-      'Compared via 2005 PPP (Purchasing Power Parity) units'
-    ],
-    fontSize: 12,
-    lineHeight: 1.5,
-    padding: 20
-  },
-  tooltips: {
-    enabled:  false,
-  },
-}
-
 // set defaults before creating chart, else they don't hold
 Chart.defaults.global.animation.duration = 70;
 Chart.defaults.global.animation.easing = 'linear';
@@ -126,7 +47,7 @@ var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
   type: 'scatter',
   data: all_data,
-  options: all_options
+  options: all_options // located in the `chart_options.js` file
 });
 
 function addDataset() {
@@ -135,43 +56,11 @@ function addDataset() {
   myChart.update();
 }
 
-
-console.log(DATA)
-
-// Possible way to animate additional data
-var next_DISABLED = function () {
-  var data = myChart.data.datasets[0].data;
-  var count = data.length;
-  data[count] = data[count - 1];
-  myChart.update({ duration: 0 });
-  data[count] = DATA['DEU'][count];
-  myChart.update();
-  if (count < DATA['DEU'].length) {
-    setTimeout(next, 105);
-  }
-}
-// setTimeout(next, 105);
-
-// Possible way to animate additional data
-var next_DISABLED_TOO = function () {
-  COUNTRY_CODES.forEach((country, index) => {
-    var data = myChart.data.datasets[index].data;
-    var count = data.length;
-    data[count] = data[count - 1];
-    myChart.update({ duration: 100 });
-    data[count] = DATA[country][count];
-    myChart.update();
-    if (count < 20) {
-      setTimeout(next, 105);
-    }
-  });
-}
-
-// setTimeout(next, 105);
-
-
-
-// Possible way to animate additional data
+/**
+ * Timing function to draw the lines
+ * @param {*} country - country code string
+ * @param {*} index - index correlated to the dataset copy inside Chart.js -- order matters!
+ */
 var next = function (country, index) {
   var data = myChart.data.datasets[index].data;
   var count = data.length;
@@ -185,10 +74,41 @@ var next = function (country, index) {
   }
 }
 
+/**
+ * Start the animation for the lines inside the chart!
+ */
+let startAnimation = () => {
+  // INDEX must coincide with the index in the DATA 
+  // DATA should include the POVERTY LINE -- so it's easier to refer to it!!!
+  COUNTRY_CODES.forEach((country, index) => {
+    setTimeout(function () { next(country, index) }, 200 * index);
+  });
+}
 
-// INDEX must coincide with the index in the DATA 
-// DATA should include the POVERTY LINE -- so it's easier to refer to it!!!
-COUNTRY_CODES.forEach((country, index) => {
-  setTimeout(function () { next(country, index) }, 200 * index);
-});
+/**
+ * Check if an element is 100% in the viewport
+ * @param elem - HTML element 
+ */
+var isInViewport = function (elem) {
+  var bounding = elem.getBoundingClientRect();
+  return (
+    bounding.top >= 0 &&
+    bounding.left >= 0 &&
+    bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+};
 
+var chartDiv = document.querySelector('#full_chart');
+
+/**
+ * callback for `scroll` event - to check if it's time to start animation
+ */
+checkIfInside = () => {
+  if (isInViewport(chartDiv)) {
+    startAnimation();
+    window.removeEventListener('scroll', checkIfInside);
+  }
+}
+
+window.addEventListener('scroll', checkIfInside, false);

@@ -4,6 +4,9 @@
   <title>Global Income Distribution</title>
     
   <script src="Chart.min.js"></script>
+  <script src="chartjs-plugin-deferred.js"></script>
+
+  <script src="chart_options.js"></script>
 
   <script src="DATA.js"></script>
 
@@ -40,13 +43,15 @@
 
     <p>This is a work in progress interactive chart</p>
 
+    <div style="height: 100vh"></div>
+
     <div class="hack">
       World Income Distribution 2005<br>
       Country percentile vs world income percentile<br>
       Compared via 2005 PPP (Purchasing Power Parity) units
     </div>
 
-    <div class="preview-chart">
+    <div id="full_chart" class="preview-chart">
       <canvas id="myChart" width="16" height="10"></canvas>
     </div>
 
