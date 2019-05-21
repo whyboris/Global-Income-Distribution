@@ -58,7 +58,8 @@ const all_options = {
     labels: {
       boxWidth: 12,
       padding: 30
-    }
+    },
+    onClick: (e) => e.stopPropagation()
   },
   title: {
     display: true,
