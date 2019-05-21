@@ -53,13 +53,26 @@ const all_options = {
       bottom: 20
     }
   },
+  onHover: function (event) {
+    event.srcElement.style.cursor = 'default';
+  },
   legend: {
     position: 'right',
     labels: {
       boxWidth: 12,
       padding: 30
     },
-    onClick: (e) => e.stopPropagation()
+    onClick: (e, item) => {
+      console.log(item);
+      toggleCountry(COUNTRY_CODES[item.datasetIndex])
+      e.stopPropagation()
+    },
+    onHover: function (event, legendItem) {
+      // There is only a legendItem when your mouse is positioned over one
+      if (legendItem) {
+        event.srcElement.style.cursor = 'pointer';
+      }
+    }
   },
   title: {
     display: true,

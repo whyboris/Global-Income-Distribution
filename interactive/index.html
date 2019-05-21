@@ -10,10 +10,16 @@
   <script src="DATA.js"></script>
 
   <style>
+
+    html {
+      margin-bottom: 100px;
+      overflow-x: hidden;
+    }
+
     .preview-chart {
       border: 1px solid gray;
       display: inline-block;
-      margin: 10px;
+      margin: 50px;
       user-select: none;
       width: 90%;
       max-width: 800px;
@@ -45,7 +51,7 @@
     <div style="height: 100vh"></div>
 
     <div id="buttons">
-      
+
     </div>
 
     <div class="hack">
@@ -57,11 +63,6 @@
     <div id="full_chart" class="preview-chart">
       <canvas id="myChart" width="16" height="10"></canvas>
     </div>
-
-    <br>
-    <br>
-
-    <button onclick="addDataset(this)">Add Dataset</button>
 
     <script src="my_chart.js"></script>
 
