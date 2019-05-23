@@ -66,8 +66,7 @@ const all_options = {
       }
     },
     onClick: (e, item) => {
-      console.log(item);
-      toggleCountry(COUNTRY_CODES[item.datasetIndex])
+      toggleCountry(item.countryCode)
       e.stopPropagation()
     },
     onHover: function (event, legendItem) {

@@ -56,6 +56,7 @@ function create_dataset(country_code, country_name, isShown) {
 
 // THIS SHOULD BE MOVED INTO THE COUNTRY CODES DATA !!!
 const horizontal = {
+  countryCode: 'xxx',
   borderColor: 'rgba(0, 0, 0, 0.4)',
   borderWidth: 1,
   data: [{ 'x': 0, 'y': 83 }, { 'x': 100, 'y': 83 }],
@@ -66,6 +67,7 @@ const horizontal = {
 
 // THIS SHOULD BE MOVED INTO THE COUNTRY CODES DATA !!!
 const horizontal_2 = {
+  countryCode: 'xxx',
   borderColor: 'rgba(0, 0, 0, 0.4)',
   borderWidth: 1,
   data: [{ 'x': 0, 'y': 53 }, { 'x': 100, 'y': 53 }],
@@ -76,6 +78,7 @@ const horizontal_2 = {
 
 // THIS SHOULD BE MOVED INTO THE COUNTRY CODES DATA !!!
 const horizontal_3 = {
+  countryCode: 'xxx',
   borderColor: 'rgba(0, 0, 0, 0.4)',
   borderWidth: 1,
   data: [{ 'x': 0, 'y': 23 }, { 'x': 100, 'y': 23 }],
@@ -156,6 +159,7 @@ function nextColor() {
  */
 function generateLabel(data) {
   return {
+    countryCode: data.countryCode,
     fillStyle: data.borderColor,
     hidden: false,
     lineWidth: 1,
