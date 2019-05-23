@@ -60,7 +60,10 @@ const all_options = {
     position: 'right',
     labels: {
       boxWidth: 12,
-      padding: 30
+      padding: 15,
+      generateLabels: (a) => {
+        return a.data.labels
+      }
     },
     onClick: (e, item) => {
       console.log(item);
