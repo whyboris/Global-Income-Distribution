@@ -8,6 +8,8 @@ const colors = [
 ]
 const colors_in_use = [];
 
+const color_button_default = "#F0F0F0";
+
 // COUNTRY CODES SHOULD BE ARRANGED BY AVERAGE OF DATA
 const ALL_COUNTRIES_CODES = ['DEU', 'BRA', 'CHN', 'IND'];
 
@@ -69,12 +71,14 @@ function toggleCountry(code) {
     myChart.data.datasets[index].showLine = false;
     freeUpColor(myChart.data.datasets[index].borderColor);
     colorizeMap(code, color_map_default, false);
+    toggleCountryButton(code, color_button_default);
   } else {
     const newColor = nextColor();
     myChart.data.datasets[index].borderColor = newColor;
     myChart.data.datasets[index].showLine = true;
     const hex = RGBToHex(newColor);
     colorizeMap(code, hex, true);
+    toggleCountryButton(code, newColor);
   }
   updateAllLabels();
   myChart.update();
@@ -141,10 +145,17 @@ var buttonHTML = '';
 // Loop through each wizard and create a list item
 ALL_COUNTRIES_CODES.forEach((element) => {
   console.log(element);
-  buttonHTML += '<button class="button" onclick="toggleCountry(\'' + element + '\')">' + toCountryName(element) + '</button>';
+  buttonHTML += '<button id="btn-' + element + '" class="button" ' + 
+                        'onclick="toggleCountry(\'' + element + '\')">' +
+                  '<span>' + toCountryName(element) + '</span></button>';
 });
 
 allButtons.innerHTML = buttonHTML;
+
+function toggleCountryButton(iso3, color) {
+  const currButton = document.getElementById('btn-' + iso3);
+  currButton.style.backgroundColor = color;
+}
 
 // --------------------
 // MAP STUFF

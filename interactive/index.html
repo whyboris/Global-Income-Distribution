@@ -25,6 +25,17 @@
       overflow-x: hidden;
     }
 
+    button span {
+      /* do not alphabetize -- 
+        this makes the text inverted -- 
+        important when the button turns black */
+      background-clip: text;
+      background: inherit;
+      -webkit-background-clip: text;
+      color: transparent;
+      filter: invert(1) grayscale(1) contrast(100);
+    }
+
     .preview-chart {
       border: 1px solid gray;
       display: inline-block;
