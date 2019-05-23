@@ -193,7 +193,7 @@ var buttonHTML = '';
 // Loop through each wizard and create a list item
 ALL_COUNTRIES_CODES.forEach((element) => {
   console.log(element);
-  buttonHTML += '<button onclick="toggleCountry(\'' + element + '\')">' + toCountryName(element) + '</button>';
+  buttonHTML += '<button class="button" onclick="toggleCountry(\'' + element + '\')">' + toCountryName(element) + '</button>';
 });
 
 allButtons.innerHTML = buttonHTML;
