@@ -11,33 +11,22 @@ $(".map-container").mapael({
       },
       eventHandlers: {
         click: function (e, id, mapElem, textElem) {
-
-          console.log(id);
-          console.log(toIso3(id))
-          
-          toggleCountry(toIso3(id))
-
-          var newData = {
-            'areas': {}
-          };
-          if (mapElem.originalAttrs.fill == filledColor) {
-            newData.areas[id] = {
-              attrs: {
-                fill: unfilledColor
-              }
-            };
-          } else {
-            newData.areas[id] = {
-              attrs: {
-                fill: filledColor
-              }
-            };
-          }
-          $(".map-container").trigger('update', [{ mapOptions: newData }]);
+          handleMapClick(id, mapElem);
         }
       }
     }
   }
 });
 
+function handleMapClick(id, mapElem) {
 
+  // `id` is iso2 string
+  // console.log(id);
+  // console.log(toIso3(id));
+
+  if (get_country_index(toIso3(id)) !== undefined) {
+    console.log('toggling!');
+    toggleCountry(toIso3(id));
+  }
+
+}

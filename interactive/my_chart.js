@@ -11,6 +11,10 @@ const colors_in_use = [];
 // COUNTRY CODES SHOULD BE ARRANGED BY AVERAGE OF DATA
 const ALL_COUNTRIES_CODES = ['DEU', 'BRA', 'CHN', 'IND'];
 
+function toIso2(iso3) {
+  return iso3_to_iso2[iso3];
+}
+
 function toIso3(iso2) {
   return iso2_to_iso3[iso2];
 }
@@ -20,11 +24,14 @@ function toCountryName(iso3) {
 }
 
 /**
- * Put in country code (e.g. 'DEU', 'BRA'), and get its index (position in array)
+ * Return index from `ALL_COUNTRIES_CODES` when given an iso3 string
+ * returns `undefined` if country not available
  * @param code string (e.g. 'DEU', 'IND') 
  */
 function get_country_index(code) {
-  return ALL_COUNTRIES_CODES.indexOf(code);
+  const index = ALL_COUNTRIES_CODES.indexOf(code);
+
+  return index !== -1 ? index : undefined;
 }
 
 /**
@@ -122,9 +129,15 @@ function toggleCountry(code) {
   if (myChart.data.datasets[index].showLine) {
     myChart.data.datasets[index].showLine = false;
     freeUpColor(myChart.data.datasets[index].borderColor);
+    colorizeMap(code, '#EEEEEE');
   } else {
-    myChart.data.datasets[index].borderColor = nextColor();
+    const newColor = nextColor();
+    myChart.data.datasets[index].borderColor = newColor;
     myChart.data.datasets[index].showLine = true;
+    console.log(newColor);
+    const hex = RGBToHex(newColor);
+    console.log(hex);
+    colorizeMap(code, hex);
   }
   updateAllLabels();
   myChart.update();
@@ -201,3 +214,53 @@ allButtons.innerHTML = buttonHTML;
 
 updateAllLabels();
 myChart.update();
+
+
+// --------------------
+// MAP STUFF
+
+/**
+ * Take iso3
+ */
+function colorizeMap(iso3, color) {
+  const iso2 = toIso2(iso3);
+  
+  const newData = {
+    'areas': {}
+  };
+  
+  newData.areas[iso2] = {
+    attrs: {
+      fill: color,
+    }
+  };
+  
+  $(".map-container").trigger('update', [{ mapOptions: newData }]);
+}
+
+/**
+ * Take `rgba(1, 2, 3, 1)` and return correct hex (ignoring alpha)
+ * @param {*} rgb 
+ */
+function RGBToHex(rgb) {
+
+  rgb = rgb.replace('rgba(', '');
+  rgb = rgb.replace(', 1)', ')');
+
+  // Turn "(r,g,b)" into [r,g,b]
+  rgb = rgb.split(")")[0].split(',');
+
+  let r = (+rgb[0]).toString(16),
+    g = (+rgb[1]).toString(16),
+    b = (+rgb[2]).toString(16);
+
+  if (r.length == 1)
+    r = "0" + r;
+  if (g.length == 1)
+    g = "0" + g;
+  if (b.length == 1)
+    b = "0" + b;
+
+  return "#" + r + g + b;
+}
+
