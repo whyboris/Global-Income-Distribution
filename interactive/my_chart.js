@@ -89,7 +89,7 @@ function toggleCountry(code) {
   } else {
     // ADD COUNTRY to `displayed_countries` and `myChart.data.datasets`
     displayed_countries.push(code);
-    myChart.data.datasets.push(create_dataset(code, nextColor(), 'NEWLY ADDED'), );
+    myChart.data.datasets.push(create_dataset(code, nextColor(), toCountryName(code)), );
   }
   myChart.update();
 }
@@ -198,16 +198,21 @@ var allButtons = document.querySelector('#buttons');
 
 var buttonHTML = '';
 
-function lol (smth) {
-  console.log('hi');
-  console.log(smth);
-  toggleCountry(smth);
-}
-
 // Loop through each wizard and create a list item
 ALL_COUNTRIES_CODES.forEach((element) => {
   console.log(element);
-  buttonHTML += '<button onclick="lol(\'' + element + '\')">' + element + '</button>';
+  buttonHTML += '<button onclick="toggleCountry(\'' + element + '\')">' + toCountryName(element) + '</button>';
 });
 
 allButtons.innerHTML = buttonHTML;
+
+// ----------------------------------------------------------------------------------
+// Create all buttons with onClick bindings
+
+function toIso3(iso2) {
+  return iso2_to_iso3.get(iso2);
+}
+
+function toCountryName(iso3) {
+  return iso3_to_name[iso3];
+}
