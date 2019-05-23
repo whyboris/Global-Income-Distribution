@@ -1,7 +1,3 @@
-
-var filledColor = '#5ba4ff'
-var unfilledColor = '#EEEEEE'
-
 $(".map-container").mapael({
   map: {
     name: "world_countries",
@@ -28,5 +24,4 @@ function handleMapClick(id, mapElem) {
     console.log('toggling!');
     toggleCountry(toIso3(id));
   }
-
 }

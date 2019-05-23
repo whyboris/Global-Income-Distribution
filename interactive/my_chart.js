@@ -1,4 +1,4 @@
-var colors = [
+const colors = [
   'rgba(0, 0, 0, 1)',
   'rgba(230, 159, 0, 1)', 
   'rgba(86, 180, 233, 1)',
@@ -10,18 +10,6 @@ const colors_in_use = [];
 
 // COUNTRY CODES SHOULD BE ARRANGED BY AVERAGE OF DATA
 const ALL_COUNTRIES_CODES = ['DEU', 'BRA', 'CHN', 'IND'];
-
-function toIso2(iso3) {
-  return iso3_to_iso2[iso3];
-}
-
-function toIso3(iso2) {
-  return iso2_to_iso3[iso2];
-}
-
-function toCountryName(iso3) {
-  return iso3_to_name[iso3];
-}
 
 /**
  * Return index from `ALL_COUNTRIES_CODES` when given an iso3 string
@@ -36,79 +24,30 @@ function get_country_index(code) {
 
 /**
  * Return a Chart.js dataset object for graphing
- * @param {*} country_code 
- * @param {*} country_name 
- * @param {*} isShown 
+ * @param {string} iso3 - country name, e.g. `DEU`  
  */
-function create_dataset(country_code, country_name, isShown) {
-
-  let lineColor = '';
-
-  if (isShown) {
-    lineColor = nextColor();
-  }
-
+function create_dataset(iso3) {
   return {
     borderCapStyle: 'round',
-    borderColor: lineColor,
     borderWidth: 5,
-    countryCode: country_code,
-    data: DATA[country_code],
+    countryCode: iso3,
+    data: DATA[iso3],
     fill: false,
-    label: country_name,
-    showLine: isShown,
+    label: toCountryName(iso3),
+    showLine: false,
   }
 }
 
-// THIS SHOULD BE MOVED INTO THE COUNTRY CODES DATA !!!
-const horizontal = {
-  countryCode: 'xxx',
-  borderColor: 'rgba(0, 0, 0, 0.4)',
-  borderWidth: 1,
-  data: [{ 'x': 0, 'y': 83 }, { 'x': 100, 'y': 83 }],
-  fill: false,
-  label: '$ XXXX - temp',
-  showLine: true,
+const all_data = {
+  datasets: []
 }
 
-// THIS SHOULD BE MOVED INTO THE COUNTRY CODES DATA !!!
-const horizontal_2 = {
-  countryCode: 'xxx',
-  borderColor: 'rgba(0, 0, 0, 0.4)',
-  borderWidth: 1,
-  data: [{ 'x': 0, 'y': 53 }, { 'x': 100, 'y': 53 }],
-  fill: false,
-  label: '$ XXX - temp',
-  showLine: true,
-}
+ALL_COUNTRIES_CODES.forEach((iso3) => {
+  all_data.datasets.push(create_dataset(iso3));
+});
 
-// THIS SHOULD BE MOVED INTO THE COUNTRY CODES DATA !!!
-const horizontal_3 = {
-  countryCode: 'xxx',
-  borderColor: 'rgba(0, 0, 0, 0.4)',
-  borderWidth: 1,
-  data: [{ 'x': 0, 'y': 23 }, { 'x': 100, 'y': 23 }],
-  fill: false,
-  label: '$ XX - temp',
-  showLine: true,
-}
-
-// later -- create a .forEach that iterates over ALL_COUNTRIES_CODES
-var all_data = {
-  datasets: [
-    create_dataset(ALL_COUNTRIES_CODES[0], 'Germany', false), 
-    // horizontal, // MOVE IT INTO THE COUNTRY CODES -- SO IT'S TREATED THE SAME WAY !!!
-    create_dataset(ALL_COUNTRIES_CODES[1], 'Brazil', false), 
-    // horizontal_2, // MOVE IT INTO THE COUNTRY CODES -- SO IT'S TREATED THE SAME WAY !!!
-    // horizontal_3, // MOVE IT INTO THE COUNTRY CODES -- SO IT'S TREATED THE SAME WAY !!!
-    create_dataset(ALL_COUNTRIES_CODES[2], 'China', false), 
-    create_dataset(ALL_COUNTRIES_CODES[3], 'India', false),
-  ]
-}
-
-// set defaults before creating chart, else they don't hold
-Chart.defaults.global.animation.duration = 70;
-Chart.defaults.global.animation.easing = 'linear';
+// Disable animation
+Chart.defaults.global.animation.duration = 0;
 
 // Create the Chart.js chart!
 var ctx = document.getElementById('myChart');
@@ -134,9 +73,7 @@ function toggleCountry(code) {
     const newColor = nextColor();
     myChart.data.datasets[index].borderColor = newColor;
     myChart.data.datasets[index].showLine = true;
-    console.log(newColor);
     const hex = RGBToHex(newColor);
-    console.log(hex);
     colorizeMap(code, hex);
   }
   updateAllLabels();
@@ -209,13 +146,6 @@ ALL_COUNTRIES_CODES.forEach((element) => {
 
 allButtons.innerHTML = buttonHTML;
 
-// ----------------------------------------------------------------------------------
-// Update labels and chart
-
-updateAllLabels();
-myChart.update();
-
-
 // --------------------
 // MAP STUFF
 
@@ -238,29 +168,14 @@ function colorizeMap(iso3, color) {
   $(".map-container").trigger('update', [{ mapOptions: newData }]);
 }
 
-/**
- * Take `rgba(1, 2, 3, 1)` and return correct hex (ignoring alpha)
- * @param {*} rgb 
- */
-function RGBToHex(rgb) {
+// ----------------------------------------------------------------------------------
+// LAST STEPS: 
+// graph some countries, 
+// update labels
+// update chart
 
-  rgb = rgb.replace('rgba(', '');
-  rgb = rgb.replace(', 1)', ')');
+toggleCountry('DEU');
+toggleCountry('IND');
 
-  // Turn "(r,g,b)" into [r,g,b]
-  rgb = rgb.split(")")[0].split(',');
-
-  let r = (+rgb[0]).toString(16),
-    g = (+rgb[1]).toString(16),
-    b = (+rgb[2]).toString(16);
-
-  if (r.length == 1)
-    r = "0" + r;
-  if (g.length == 1)
-    g = "0" + g;
-  if (b.length == 1)
-    b = "0" + b;
-
-  return "#" + r + g + b;
-}
-
+updateAllLabels();
+myChart.update();
