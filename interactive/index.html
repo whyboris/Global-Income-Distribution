@@ -3,10 +3,15 @@
 <head>
   <title>Global Income Distribution - version 0.0.2</title>
     
+  <!-- FOR THE MAP -->
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="raphael.min.js"></script>
+  <script src="jquery.mapael.min.js"></script>
+  <script src="world_countries.js"></script>
+
+  <!-- FOR THE CHART -->
   <script src="Chart.min.js"></script>
-
   <script src="chart_options.js"></script>
-
   <script src="DATA.js"></script>
   <script src="iso2_to_iso3.js"></script>
   <script src="iso3_to_name.js"></script>
@@ -21,7 +26,7 @@
     .preview-chart {
       border: 1px solid gray;
       display: inline-block;
-      margin: 50px;
+      margin: 10px;
       user-select: none;
       width: 90%;
       max-width: 800px;
@@ -50,6 +55,16 @@
       outline: none;
       padding: 5px;
     }
+
+    .map-container {
+      background-color: #d1d8fe;
+      padding: 30px 0;
+      width: 90%;
+    }
+
+    .map {
+      transform: scaleX(0.8);
+    }
   </style>
 
 </head>
@@ -63,9 +78,15 @@
 
     <div style="height: 100vh"></div>
 
-    <div id="buttons">
-
+    <div class="map-container preview-chart">
+      <div class="map">Alternative content</div>
     </div>
+
+    <div id="full_chart" class="preview-chart">
+      <canvas id="myChart" width="16" height="10"></canvas>
+    </div>
+
+    <div id="buttons"></div>
 
     <div class="hack">
       World Income Distribution 2005<br>
@@ -73,9 +94,7 @@
       Compared via 2005 PPP (Purchasing Power Parity) units
     </div>
 
-    <div id="full_chart" class="preview-chart">
-      <canvas id="myChart" width="16" height="10"></canvas>
-    </div>
+    <script src="my_map.js"></script>
 
     <script src="my_chart.js"></script>
 

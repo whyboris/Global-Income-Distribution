@@ -11,9 +11,8 @@ const colors_in_use = [];
 // COUNTRY CODES SHOULD BE ARRANGED BY AVERAGE OF DATA
 const ALL_COUNTRIES_CODES = ['DEU', 'BRA', 'CHN', 'IND'];
 
-
 function toIso3(iso2) {
-  return iso2_to_iso3.get(iso2);
+  return iso2_to_iso3[iso2];
 }
 
 function toCountryName(iso3) {
@@ -90,12 +89,12 @@ const horizontal_3 = {
 // later -- create a .forEach that iterates over ALL_COUNTRIES_CODES
 var all_data = {
   datasets: [
-    create_dataset(ALL_COUNTRIES_CODES[0], 'Germany', true), 
+    create_dataset(ALL_COUNTRIES_CODES[0], 'Germany', false), 
     // horizontal, // MOVE IT INTO THE COUNTRY CODES -- SO IT'S TREATED THE SAME WAY !!!
     create_dataset(ALL_COUNTRIES_CODES[1], 'Brazil', false), 
     // horizontal_2, // MOVE IT INTO THE COUNTRY CODES -- SO IT'S TREATED THE SAME WAY !!!
     // horizontal_3, // MOVE IT INTO THE COUNTRY CODES -- SO IT'S TREATED THE SAME WAY !!!
-    create_dataset(ALL_COUNTRIES_CODES[2], 'China', true), 
+    create_dataset(ALL_COUNTRIES_CODES[2], 'China', false), 
     create_dataset(ALL_COUNTRIES_CODES[3], 'India', false),
   ]
 }
@@ -161,7 +160,6 @@ function generateLabel(data) {
   return {
     countryCode: data.countryCode,
     fillStyle: data.borderColor,
-    hidden: false,
     lineWidth: 1,
     strokeStyle: data.borderColor,
     text: toCountryName(data.countryCode),
