@@ -68,13 +68,13 @@ function toggleCountry(code) {
   if (myChart.data.datasets[index].showLine) {
     myChart.data.datasets[index].showLine = false;
     freeUpColor(myChart.data.datasets[index].borderColor);
-    colorizeMap(code, '#EEEEEE');
+    colorizeMap(code, color_map_default, false);
   } else {
     const newColor = nextColor();
     myChart.data.datasets[index].borderColor = newColor;
     myChart.data.datasets[index].showLine = true;
     const hex = RGBToHex(newColor);
-    colorizeMap(code, hex);
+    colorizeMap(code, hex, true);
   }
   updateAllLabels();
   myChart.update();
@@ -150,9 +150,12 @@ allButtons.innerHTML = buttonHTML;
 // MAP STUFF
 
 /**
- * Take iso3
+ * Colorize the map
+ * @param {*} iso3 
+ * @param {*} color 
+ * @param {*} enable -- boolean -- if true, then enable, if false, then disable 
  */
-function colorizeMap(iso3, color) {
+function colorizeMap(iso3, color, enable) {
   const iso2 = toIso2(iso3);
   
   const newData = {
@@ -162,6 +165,9 @@ function colorizeMap(iso3, color) {
   newData.areas[iso2] = {
     attrs: {
       fill: color,
+    }, 
+    attrsHover: {
+      fill: enable ? color : color_map_hover,
     }
   };
   

@@ -1,9 +1,16 @@
+const color_map_default = '#EEEEEE';
+const color_map_hover = '#CCCCCC';
+
 $(".map-container").mapael({
   map: {
     name: "world_countries",
     defaultArea: {
       attrs: {
-        fill: '#EEEEEE',
+        fill: color_map_default,
+      },
+      attrsHover: {
+        animDuration: 150,
+        fill: color_map_hover,
       },
       eventHandlers: {
         click: function (e, id, mapElem, textElem) {
