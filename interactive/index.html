@@ -43,13 +43,55 @@
     }
 
     #buttons {
-      /* grid-gap: 0; */
-      /* width: 90%; */
-      display: grid;
-      grid-auto-rows: 30px;
-      grid-template-columns: repeat(auto-fill, 150px);
-      justify-content: space-evenly;
-      margin-left: auto;
+      column-count: 10;
+    }
+  
+    @media all and (max-width: 2000px) {
+      #buttons {
+        column-count: 9;
+      }
+    }
+  
+    @media all and (max-width: 1800px) {
+      #buttons {
+        column-count: 8;
+      }
+    }
+  
+    @media all and (max-width: 1600px) {
+      #buttons {
+        column-count: 7;
+      }
+    }
+  
+    @media all and (max-width: 1400px) {
+      #buttons {
+        column-count: 6;
+      }
+    }
+  
+    @media all and (max-width: 1200px) {
+      #buttons {
+        column-count: 5;
+      }
+    }
+
+    @media all and (max-width: 1000px) {
+      #buttons {
+        column-count: 4;
+      }
+    }
+
+    @media all and (max-width: 800px) {
+      #buttons {
+        column-count: 3;
+      }
+    }
+
+    @media all and (max-width: 600px) {
+      #buttons {
+        column-count: 2;
+      }
     }
 
     .preview-chart {
@@ -77,6 +119,7 @@
     .button {
       /* background-color: #F0F0F0; */
       /* border: 1px solid #BBBBBB; */
+      width: 100%; /* WHEN USING COLUMN COUNT */
       border-radius: 3px;
       border: 0;
       cursor: pointer;

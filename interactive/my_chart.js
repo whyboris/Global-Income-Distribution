@@ -152,7 +152,6 @@ var buttonHTML = '';
 // when listing buttons we want them to be in alphabetical order
 // Loop through each wizard and create a list item
 ALL_COUNTRIES_CODES_SORTED.forEach((element) => {
-  console.log(element);
   buttonHTML += '<button id="btn-' + element + '" class="button" ' + 
                         'onclick="toggleCountry(\'' + element + '\')">' +
                   '<span>' + toCountryName(element) + '</span></button>';
