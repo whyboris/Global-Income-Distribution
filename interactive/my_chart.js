@@ -192,6 +192,12 @@ function colorizeMap(iso3, color, enable) {
   $(".map-container").trigger('update', [{ mapOptions: newData }]);
 }
 
+console.log(COUNTRIES_NOT_IN_DATASET);
+
+COUNTRIES_NOT_IN_DATASET.forEach((iso2) => {
+  colorizeMap(toIso3(iso2), '#FFFFFF', false);
+});
+
 // ----------------------------------------------------------------------------------
 // LAST STEPS: 
 // graph some countries, 
