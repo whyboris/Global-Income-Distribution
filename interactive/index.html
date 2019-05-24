@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Global Income Distribution - version 0.0.2</title>
+  <title>Global Income Distribution - draft version 0.0.3</title>
     
   <!-- FOR THE MAP -->
   <script src="jquery-3.4.1.min.js"></script>
@@ -12,7 +12,9 @@
   <!-- FOR THE CHART -->
   <script src="Chart.min.js"></script>
   <script src="chart_options.js"></script>
-  <script src="DATA.js"></script>
+  <script src="DATA_2011.js"></script>
+  <script src="DATA_2011_COUNTRIES.js"></script>
+  <script src="DATA_2011_COUNTRIES_SORTED.js"></script>
   <script src="util.js"></script>
   <script src="iso2_to_iso3.js"></script>
   <script src="iso3_to_iso2.js"></script>
@@ -34,6 +36,20 @@
       -webkit-background-clip: text;
       color: transparent;
       filter: invert(1) grayscale(1) contrast(100);
+    }
+
+    #button-holder {
+      width: 90%
+    }
+
+    #buttons {
+      /* grid-gap: 0; */
+      /* width: 90%; */
+      display: grid;
+      grid-auto-rows: 30px;
+      grid-template-columns: repeat(auto-fill, 150px);
+      justify-content: space-evenly;
+      margin-left: auto;
     }
 
     .preview-chart {
@@ -59,24 +75,27 @@
     }
 
     .button {
-      background-color: #F0F0F0;
+      /* background-color: #F0F0F0; */
+      /* border: 1px solid #BBBBBB; */
       border-radius: 3px;
-      border: 1px solid #888888;
+      border: 0;
       cursor: pointer;
       font-size: 14px; 
       margin: 5px;
       outline: none;
-      padding: 5px;
+      padding: 0 3px;
+      text-align: left;
     }
 
     .map-container {
       background-color: #d1d8fe;
       padding: 30px 0;
       width: 90%;
+      overflow: hidden;
     }
 
     .map {
-      transform: scaleX(0.8);
+      transform: scaleY(1.4);
     }
   </style>
 
@@ -85,11 +104,13 @@
 <body>
 
   <center>
+
     <h1>Global Income Distribution</h1>
 
     <p>This is a work in progress interactive chart</p>
 
     <div style="height: 100vh"></div>
+
 
     <div class="map-container preview-chart">
       <div class="map">Alternative content</div>
@@ -99,7 +120,9 @@
       <canvas id="myChart" width="16" height="10"></canvas>
     </div>
 
-    <div id="buttons"></div>
+    <div id="button-holder">
+      <div id="buttons"></div>
+    </div>
 
     <div class="hack">
       World Income Distribution 2005<br>

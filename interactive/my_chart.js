@@ -11,7 +11,8 @@ const colors_in_use = [];
 const color_button_default = "#F0F0F0";
 
 // COUNTRY CODES SHOULD BE ARRANGED BY AVERAGE OF DATA
-const ALL_COUNTRIES_CODES = ['DEU', 'BRA', 'CHN', 'IND'];
+// now imported in the index.html as a file exported from Python
+// const ALL_COUNTRIES_CODES = ['DEU', 'BRA', 'CHN', 'IND'];
 
 /**
  * Return index from `ALL_COUNTRIES_CODES` when given an iso3 string
@@ -142,8 +143,10 @@ var allButtons = document.querySelector('#buttons');
 
 var buttonHTML = '';
 
+// `ALL_COUNTRIES_CODES` are sorted by median income
+// when listing buttons we want them to be in alphabetical order
 // Loop through each wizard and create a list item
-ALL_COUNTRIES_CODES.forEach((element) => {
+ALL_COUNTRIES_CODES_SORTED.forEach((element) => {
   console.log(element);
   buttonHTML += '<button id="btn-' + element + '" class="button" ' + 
                         'onclick="toggleCountry(\'' + element + '\')">' +
