@@ -3,8 +3,10 @@ const colors = [
   'rgba(230, 159, 0, 1)', 
   'rgba(86, 180, 233, 1)',
   'rgba(0, 158, 115, 1)',
+  'rgba(240, 228, 66, 1)',
+  'rgba(0, 114, 178, 1)', 
   'rgba(213, 94, 0, 1)', 
-  'rgba(0, 114, 178, 1)',
+  'rgba(204, 121, 167, 1)',
 ]
 const colors_in_use = [];
 
@@ -74,12 +76,15 @@ function toggleCountry(code) {
     colorizeMap(code, color_map_default, false);
     toggleCountryButton(code, color_button_default);
   } else {
-    const newColor = nextColor();
-    myChart.data.datasets[index].borderColor = newColor;
-    myChart.data.datasets[index].showLine = true;
-    const hex = RGBToHex(newColor);
-    colorizeMap(code, hex, true);
-    toggleCountryButton(code, newColor);
+    // DO NOTHING IF MAX COLORS REACHED
+    if (colors_in_use.length < 8) {
+      const newColor = nextColor();
+      myChart.data.datasets[index].borderColor = newColor;
+      myChart.data.datasets[index].showLine = true;
+      const hex = RGBToHex(newColor);
+      colorizeMap(code, hex, true);
+      toggleCountryButton(code, newColor);
+    }
   }
   updateAllLabels();
   myChart.update();
