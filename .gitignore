@@ -1,0 +1,18 @@
+*.*
+
+# temporarily using allowlist rather than denylist
+
+!country_names.ipynb
+!export_to_js.ipynb
+!global_income_distribution.ipynb
+!income_dist_2011.ipynb
+!world_income_distribution.ipynb
+
+!README.md
+
+!interactive/*
+!interactive/images/*
+
+!.gitignore
+
+*.DS_Store
