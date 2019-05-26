@@ -19,6 +19,10 @@ abbr {
   margin-top: 20px;
 }
 
+.figure-text {
+  font-size: 80%;
+}
+
 .reference-link {
   cursor: pointer;
   font-size: 70%;

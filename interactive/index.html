@@ -77,7 +77,9 @@
     <div class="figure">
       <img src='images/1.png'>
       <br>
-      [fig. 1 - Global Income Inequality]
+      <span class='figure-text'>
+        Figure 1 - Global Income Inequality
+      </span>
     </div>
 
     <p>
@@ -149,7 +151,9 @@
     <div class="figure">
       <img src='images/2.png'>
       <br>
-      [Fig 2. - below US poverty]
+      <span class='figure-text'>
+        Figure 2 - below US poverty level
+      </span>
     </div>
     <p>
       Another way to look at the data is to plot a <em>histogram</em><span id="n4" title="click to see the reference" 
@@ -167,7 +171,9 @@
     <div class="figure">
       <img src='images/3.png'>
       <br>
-      [Fig 3. - histogram]
+      <span class='figure-text'>
+        Figure 3 - Histogram of individuals earning less than $11,490
+      </span>
     </div>
     <p>
       This visualization highlights that a large fraction of individuals are living below $2,000 per year.
@@ -283,7 +289,9 @@
     <div class="figure">
       <img src='images/4.png'>
       <br>
-      [Fig 4 - two countries linear income scale - y axis USD]
+      <span class='figure-text'>
+        Figure 4 - Linear PPP income scale
+      </span>
     </div>
     <p>
       Reading the graph we can approximate that about half of individuals living in Germany in 2011 earned more than
@@ -307,7 +315,9 @@
     <div class="figure">
       <img src='images/5.png'>
       <br>
-      [Fig 5 - two countries percentile income scale - y-axis ONLY percentiles]
+      <span class='figure-text'>
+        Figure 5 - Linear percentile income scale
+      </span>
     </div>
     <p>
       We can now clearly see that the bottom income earners in Germany earn more than even the highest income earners
@@ -321,7 +331,9 @@
     <div class="figure">
       <img src='images/6.png'>
       <br>
-      [fig 6 - two countries percentile income scale - TWO scales present, both evenly spaced]
+      <span class='figure-text'>
+        Figure 6 - Linear percentile income scale along with equivalent (non-linear) PPP 
+      </span>
     </div>
     <p>
       We see on the y-axis that the scale is linear with respect to percentiles, it is not linear with respect to
@@ -331,7 +343,9 @@
     <div class="figure">
       <img src='images/7.png'>
       <br>
-      [fig 7 - two countries percentile income scale - TWO scales - specific dollars chosen]
+      <span class='figure-text'>
+        Figure 7 - Linear percentile income scale, non-linear PPP (specific amounts chosen)
+      </span>
     </div>
     <p>
       This is hopefully the clearest way to present this very dense information. There are 107 countries in the
@@ -340,8 +354,25 @@
     <div class="figure">
       <img src='images/8.png'>
       <br>
-      [fig 8 - all countries in the dataset - TWO scales - specific dollars chosen]
+      <span class='figure-text'>
+        Figure 8 - All 106 countries from the dataset
+      </span>
     </div>
+    <p>
+      This chart confirms what the late Hans Rosling was trying to educate the world about: the world isn't split 
+      into "developed" and "developing" nations, but is instead a continuum.<span id="n10" title="click to see the reference" class="reference-link">[10]</span>
+      </p>
+      
+      <div title="click to hide this reference" id="ref10" class="reference">
+        <p><span class="reference-link">[10]</span>
+          TED.com - Hans Rosling shatters the myth of “developed” versus “developing” nations
+          <br>
+          <a href="https://blog.ted.com/hans-rosling-shatters-the-myth-of-developed-versus-developing-nations/">
+            https://blog.ted.com/hans-rosling-shatters-the-myth-of-developed-versus-developing-nations/
+          </a>
+        </p>
+      </div>
+    </p>
     <p>
       I hope you find eye-opening insights about our world as you explore the dataset below.
     </p>
@@ -378,7 +409,7 @@
 
   <script>
 
-    for (let i=1; i < 10; i++) {
+    for (let i=1; i < 11; i++) {
       $("#n" + i).click(function () {
         $("#ref" + i).slideToggle("fast");
       });
