@@ -7,6 +7,7 @@ const colors = [
   'rgba(0, 114, 178, 1)', 
   'rgba(213, 94, 0, 1)', 
   'rgba(204, 121, 167, 1)',
+  'rgba(150, 150, 150, 1)',
 ]
 const colors_in_use = [];
 
@@ -77,13 +78,15 @@ function toggleCountry(code) {
     toggleCountryButton(code, color_button_default);
   } else {
     // DO NOTHING IF MAX COLORS REACHED
-    if (colors_in_use.length < 8) {
+    if (colors_in_use.length < 9) { // ONLY ALLOW 10 colors 
       const newColor = nextColor();
       myChart.data.datasets[index].borderColor = newColor;
       myChart.data.datasets[index].showLine = true;
       const hex = RGBToHex(newColor);
       colorizeMap(code, hex, true);
       toggleCountryButton(code, newColor);
+    } else {
+      alert('At most 9 countries can be compared');
     }
   }
   updateAllLabels();
