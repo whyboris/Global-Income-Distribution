@@ -1,0 +1,119 @@
+html {
+  margin-bottom: 100px;
+  overflow-x: hidden;
+}
+
+button span {
+  /* do not alphabetize -- 
+    this makes the text inverted -- 
+    important when the button turns black */
+  background-clip: text;
+  background: inherit;
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: invert(1) grayscale(1) contrast(100);
+}
+
+#button-holder {
+  width: 90%
+}
+
+.preview-chart {
+  border: 1px solid gray;
+  display: inline-block;
+  margin: 10px;
+  user-select: none;
+  width: 90%;
+  max-width: 800px;
+  min-width: 700px;
+}
+
+.hack {
+  border: 1px solid red;
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  background-color: white;
+  padding: 10px 10px 5px;
+  text-align: center;
+  transform: translate(-50%, 0);
+  user-select: none;
+}
+
+.button {
+  /* background-color: #F0F0F0; */
+  /* border: 1px solid #BBBBBB; */
+  width: 100%; /* WHEN USING COLUMN COUNT */
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  font-size: 14px; 
+  margin: 5px;
+  outline: none;
+  padding: 0 3px;
+  text-align: left;
+}
+
+.map-container {
+  background-color: #d1d8fe;
+  height: 500px;
+  overflow: hidden;
+  width: 800px;
+}
+
+.map {
+  transform: scaleY(1.4) translate(0, 66px);
+}
+
+
+#buttons {
+  column-count: 10;
+}
+
+@media all and (max-width: 2000px) {
+  #buttons {
+    column-count: 9;
+  }
+}
+
+@media all and (max-width: 1800px) {
+  #buttons {
+    column-count: 8;
+  }
+}
+
+@media all and (max-width: 1600px) {
+  #buttons {
+    column-count: 7;
+  }
+}
+
+@media all and (max-width: 1400px) {
+  #buttons {
+    column-count: 6;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  #buttons {
+    column-count: 5;
+  }
+}
+
+@media all and (max-width: 1000px) {
+  #buttons {
+    column-count: 4;
+  }
+}
+
+@media all and (max-width: 800px) {
+  #buttons {
+    column-count: 3;
+  }
+}
+
+@media all and (max-width: 600px) {
+  #buttons {
+    column-count: 2;
+  }
+}

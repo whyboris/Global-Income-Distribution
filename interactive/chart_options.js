@@ -91,7 +91,7 @@ const all_options = {
       },
       scaleLabel: {
         display: true,
-        labelString: 'Data source: Branko Milanovic - World Income Distribution (2005)',
+        labelString: 'Data source: Branko Milanovic - World Income Distribution (2011)',
         fontSize: 12,
       }
     }]
