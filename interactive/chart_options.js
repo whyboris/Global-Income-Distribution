@@ -135,9 +135,9 @@ const all_options = {
   title: {
     display: true,
     text: [
-      'World Income Distribution 2005', 
+      'World Income Distribution 2011', 
       'Country percentile vs world income percentile',
-      'Compared via 2005 PPP (Purchasing Power Parity) units'
+      'Compared via 2011 PPP (Purchasing Power Parity) units'
     ],
     fontSize: 12,
     lineHeight: 1.5,

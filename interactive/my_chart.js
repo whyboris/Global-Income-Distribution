@@ -207,6 +207,7 @@ COUNTRIES_NOT_IN_DATASET.forEach((iso2) => {
 // update labels
 // update chart
 
+toggleCountry('BRA');
 toggleCountry('DEU');
 toggleCountry('IND');
 

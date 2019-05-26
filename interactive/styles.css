@@ -5,6 +5,37 @@ html {
   scroll-behavior: smooth;
 }
 
+.header {
+  text-align: center;
+  width: 100%;
+}
+
+.navigation {
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  user-select: none;
+}
+
+.title {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.nav-link {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid #126282;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 30%; 
+}
+
 button span {
   /* do not alphabetize -- 
     this makes the text inverted -- 

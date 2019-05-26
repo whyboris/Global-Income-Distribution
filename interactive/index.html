@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Global Income Distribution 2011 - draft version 0.9.0</title>
+  <title>Income-Inequality.info - explore income inequality data</title>
+
+  <link rel="icon" type="image/png" href="favicon.png">
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="article.css">
 
-  <!-- FOR THE MAP -->
+  <!-- MAP & CHART VENDOR FILES -->
   <script src="jquery-3.4.1.min.js"></script>
   <script src="raphael.min.js"></script>
   <script src="jquery.mapael.min.js"></script>
+  <script src="Chart.min.js"></script>
   <script src="world_countries.js"></script>
 
-  <!-- FOR THE CHART -->
-  <script src="Chart.min.js"></script>
+  <!-- CUSTOM -->
   <script src="chart_options.js"></script>
   <script src="DATA_2011.js"></script>
   <script src="DATA_2011_COUNTRIES.js"></script>
@@ -28,10 +30,15 @@
 
 <body>
 
-  <center>
-    <h1>Global Income Distribution</h1>
-    <p>This page is a work in progress. Feedback welcome.</p>
-  </center>
+  <div class="header">
+    <h1 class="title">Income-Inequality.info</h1>
+    <span class="subtitle">Learn about global income inequality through an interactive visualization</span>
+    <div class="navigation">
+      <a href="undp.html" class="nav-link">UNDP</a> 
+      <a href="faq.html" class="nav-link">FAQ</a> 
+      <a href="about.html" class="nav-link">About</a>
+    </div>
+  </div>
 
   <article>
 
@@ -295,7 +302,7 @@
     </div>
     <p>
       Reading the graph we can approximate that about half of individuals living in Germany in 2011 earned more than
-      $16,000 {CONFIRM BEFORE PUBLISH} and about a quarter earned less than $11,490 (what is considered poverty in the
+      $16,000 and about a quarter earned less than $11,490 (what is considered poverty in the
       US in 2013).
     </p>
     <p>

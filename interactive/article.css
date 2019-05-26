@@ -10,6 +10,12 @@ img {
   /* height: 300px; */
 }
 
+@media all and (max-width: 900px) {
+  img {
+    max-width: 90vw;
+  }
+}
+
 em,
 abbr {
   font-weight: 600;
@@ -24,6 +30,7 @@ abbr {
 }
 
 .reference-link {
+  color: #126282;
   cursor: pointer;
   font-size: 70%;
   position: relative;
@@ -63,6 +70,7 @@ a {
   text-decoration: none;
   transition-duration: 250ms;
   transition-property: border-bottom;
+  user-select: none;
 }
 
 a:visited {
@@ -74,6 +82,10 @@ a:hover {
   text-decoration: none;
   transition-duration: 250ms;
   transition-property: border-bottom;
+}
+
+a:active {
+  color: #a1e4ff;
 }
 
 h1,
