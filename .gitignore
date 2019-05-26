@@ -10,8 +10,7 @@
 
 !README.md
 
-!interactive/*
-!interactive/images/*
+!interactive/**/*
 
 !.gitignore
 

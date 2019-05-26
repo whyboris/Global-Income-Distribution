@@ -91,7 +91,7 @@ const all_options = {
       },
       scaleLabel: {
         display: true,
-        labelString: 'Data source: Branko Milanovic - World Income Distribution (2011)',
+        labelString: 'Data source: Branko Milanovic - World Income Distribution (2011)          Visualization: income-inequality.info (2019)',
         fontSize: 12,
       }
     }]
@@ -136,8 +136,8 @@ const all_options = {
     display: true,
     text: [
       'World Income Distribution 2011', 
-      'Country percentile vs world income percentile',
-      'Compared via 2011 PPP (Purchasing Power Parity) units'
+      'Country percentile vs world income distribution',
+      'Income per person per year in 2011 PPP (Purchasing Power Parity) dollars'
     ],
     fontSize: 12,
     lineHeight: 1.5,

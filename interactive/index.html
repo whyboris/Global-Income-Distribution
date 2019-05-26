@@ -1,7 +1,33 @@
 <!DOCTYPE html>
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5555193-16"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-5555193-16');
+  </script>
+
   <title>Income-Inequality.info - explore income inequality data</title>
+
+  <meta name="description" content="Income Inequality" />
+  <meta name="keywords" content="income inequality, income, inequality, world, global" />
+  <meta name="author" content="Boris Yakubchik" />
+  
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content="Income Inequality" />
+  <meta property="og:image" content="images/social.jpg" />
+  <meta property="og:url" content="http://income-inequality.info/" />
+  <meta property="og:site_name" content="Income Inequality" />
+  <meta property="og:description" content="Learn about global income inequality through an interactive visualization" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@whyboris" />
+  <meta name="twitter:title" content="Income Inequality Interactive Visualization" />
+  <meta name="twitter:description" content="Learn about global income inequality through an interactive visualization" />
+  <meta name="twitter:image" content="images/social.jpg" />
 
   <link rel="icon" type="image/png" href="favicon.png">
 
@@ -9,22 +35,22 @@
   <link rel="stylesheet" href="article.css">
 
   <!-- MAP & CHART VENDOR FILES -->
-  <script src="jquery-3.4.1.min.js"></script>
-  <script src="raphael.min.js"></script>
-  <script src="jquery.mapael.min.js"></script>
-  <script src="Chart.min.js"></script>
-  <script src="world_countries.js"></script>
+  <script src="vendor/jquery-3.4.1.min.js"></script>
+  <script src="vendor/raphael.min.js"></script>
+  <script src="vendor/jquery.mapael.min.js"></script>
+  <script src="vendor/Chart.min.js"></script>
+  <script src="vendor/world_countries.js"></script>
 
   <!-- CUSTOM -->
-  <script src="chart_options.js"></script>
-  <script src="DATA_2011.js"></script>
-  <script src="DATA_2011_COUNTRIES.js"></script>
-  <script src="DATA_2011_COUNTRIES_SORTED.js"></script>
-  <script src="NOT_IN_DATASET.js"></script>
-  <script src="util.js"></script>
-  <script src="iso2_to_iso3.js"></script>
-  <script src="iso3_to_iso2.js"></script>
-  <script src="iso3_to_name.js"></script>
+  <script src="js/chart_options.js"></script>
+  <script src="js/DATA_2011_COUNTRIES_SORTED.js"></script>
+  <script src="js/DATA_2011_COUNTRIES.js"></script>
+  <script src="js/DATA_2011.js"></script>
+  <script src="js/iso2_to_iso3.js"></script>
+  <script src="js/iso3_to_iso2.js"></script>
+  <script src="js/iso3_to_name.js"></script>
+  <script src="js/NOT_IN_DATASET.js"></script>
+  <script src="js/util.js"></script>
 
 </head>
 
@@ -392,30 +418,32 @@
     </p>
   </article>
 
-  <div class="map-container preview-chart">
+  <div class="map-container preview-chart center-it-all">
     <div class="map">MAP LOADING ERROR</div>
   </div>
 
-  <div id="full_chart" class="preview-chart">
+  <div id="full_chart" class="preview-chart center-it-all">
+    <div class="chart-title-hack">
+      <span style="font-size: 120%; margin-bottom: 10px;">
+        World Income Distribution 2011
+      </span>
+      <span>
+        Country percentile vs world income income distribution
+      </span>
+      Income per person per year in 2011 PPP (Purchasing Power Parity) dollars
+    </div>
     <canvas id="myChart" width="16" height="10"></canvas>
   </div>
 
-  <div id="button-holder">
+  <div id="button-holder center-it-all">
     <div id="buttons"></div>
   </div>
 
-  <!-- <div class="hack">
-      World Income Distribution 2011<br>
-      Country percentile vs world income percentile<br>
-      Compared via 2005 PPP (Purchasing Power Parity) units
-    </div> -->
+  <script src="js/my_map.js"></script>
 
-  <script src="my_map.js"></script>
-
-  <script src="my_chart.js"></script>
+  <script src="js/my_chart.js"></script>
 
   <script>
-
     for (let i=1; i < 11; i++) {
       $("#n" + i).click(function () {
         $("#ref" + i).slideToggle("fast");
@@ -425,5 +453,11 @@
       });
     }
   </script>
+
+  <div style="width: 100%; text-align: center; margin-top: 40px;">
+    <a style="border: 0" href="https://twitter.com/home?status=Learn about global income inequality through an interactive visualization: http://income-inequality.info">
+      <img style="width: 30px" src="images/twitter.svg">
+      <span style="display: block; font-size: 12px;">share this</span></a>
+  </div>
 
 </body>

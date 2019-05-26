@@ -59,18 +59,22 @@ button span {
   width: 90%;
   max-width: 800px;
   min-width: 700px;
+  position: relative;
 }
 
-.hack {
-  border: 1px solid red;
+.chart-title-hack {
   position: absolute;
-  left: 50%;
-  top: 15%;
-  background-color: white;
+  left: 14px;
+  top: 10px;
+  font-size: 16px;
+  line-height: 18px;
+  background-color: #fafafa;
   padding: 10px 10px 5px;
-  text-align: center;
-  transform: translate(-50%, 0);
-  user-select: none;
+}
+
+.chart-title-hack span {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .button {
@@ -92,6 +96,11 @@ button span {
   height: 500px;
   overflow: hidden;
   width: 800px;
+}
+
+.center-it-all {
+  margin-left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .map {
