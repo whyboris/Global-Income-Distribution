@@ -28,7 +28,7 @@ function handleMapClick(id, mapElem) {
   // console.log(toIso3(id));
 
   if (get_country_index(toIso3(id)) !== undefined) {
-    console.log('toggling!');
+    // console.log('toggling!');
     toggleCountry(toIso3(id));
   }
 }

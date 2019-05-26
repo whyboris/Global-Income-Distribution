@@ -4,6 +4,7 @@
   <title>Global Income Distribution 2011 - draft version 0.1.0</title>
 
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="article.css">
 
   <!-- FOR THE MAP -->
   <script src="jquery-3.4.1.min.js"></script>
@@ -27,15 +28,16 @@
 
 <body>
 
-  <h1>Global Income Distribution</h1>
+  <center>
+    <h1>Global Income Distribution</h1>
+    <p>This page is a work in progress. Feedback welcome.</p>
+  </center>
 
-  <p>This page is a work in progress. Feedback welcome.</p>
+  <article>
 
-  <div style="margin-left: calc(50vw - 300px); width: 600px">
-
-    <p>
+    <h1>
       Inequality
-    </p>
+    </h1>
     <p>
       Inequality is a broad multifaceted concept that is impossible to reduce to a single number or visualization; to
       understand it better, we must look at numerous perspectives (income, wealth, education, health, access to
@@ -43,172 +45,293 @@
       distributions of individual incomes of people within countries and across the world.
     </p>
     <p>
-      You can skip to the interactive visualization, but you will get a richer picture of the data by first reading
-      the essay.
+      You can <a href="#">skip to the interactive visualization</a>, but you will get a richer picture of the data by reading
+      the essay first.
     </p>
+    <h2>
+      The most important chart
+    </h2>
     <p>
-      Most important chart
+      In 2009 I came across a chart<span id="n1" title="click to see the reference" class="reference-link">[1]</span> that put the whole world in perspective. Here, a decade later, I recreate it with the most recent data I can find, from 2013<span id="n2" title="click to see reference" class="reference-link">[2]</span>
     </p>
-    <p>
-      In 2009 I came across a chart [1] that put the whole world in perspective. Here, a decade later, I recreate it
-      with the most recent data I can find, from 2013 [2]:
-    </p>
-    <p>
-      [1] Giving What We Can link
-    </p>
-    <p>
-      [2] Tomas Hellebrandt and Paolo Mauro
-      https://piie.com/publications/working-papers/future-worldwide-income-distribution
-    </p>
-    <p>
+
+    <div  title="click to hide this reference" id="ref1" class="reference">
+      <p><span class="reference-link">[1]</span>
+      Giving What We Can. The original chart was based on 2003 data. 
+      <br>
+      <a href="https://www.givingwhatwecan.org/get-involved/myths-about-aid/">https://www.givingwhatwecan.org</a>
+      </a>
+      </p>
+    </div>
+
+    <div  title="click to hide this reference" id="ref2" class="reference">
+      <p><span class="reference-link">[2]</span>
+      Tomas Hellebrandt and Paolo Mauro
+      <br>
+      <a href="https://piie.com/publications/working-papers/future-worldwide-income-distribution">
+        https://piie.com/publications/working-papers/future-worldwide-income-distribution
+      </a>
+      </p>
+    </div>
+
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
       [fig. 1 - Global Income Inequality]
-    </p>
+    </div>
+
     <p>
-      To understand it, you need to understand two concepts: percentile and purchasing power parity (PPP).
+      To understand it, you need to understand two concepts: <em>percentile</em> and <em>purchasing power parity</em>
+      (<abbr>PPP</abbr>).
     </p>
     <p>
       If every individual on earth stands shoulder to shoulder next to each other ordered by height, the person who is
-      taller than 90% of the others is said to be at the 90th percentile. In this graph imagine everyone standing
-      shoulder to shoulder arranged by income.
+      taller than 90% of the others is said to be at the 90<sup>th</sup> <em>percentile</em>. In this graph imagine
+      everyone standing shoulder to shoulder arranged by income.
     </p>
-    <p> Ordering everyone by income is a very challenging task. Simply converting currencies at international exchange
+    <p>
+      Ordering everyone by income is a very challenging task. Simply converting currencies at international exchange
       rates fails to capture the complexity of life. In many countries same items are cheaper (you can buy a lot more
       bread in one country for $1 than in another). A better conversion factor is based on how much money it takes to
-      buy a standard basket of goods (for example food necessities). This is the gist of purchasing power parity.
+      buy a standard basket of goods (for example food necessities). This is the gist of <em>purchasing power parity</em>.
     </p>
-    <p> In this and all below charts, all $1 USD is equivalent to $1 PPP (roughly speaking, $1 PPP can buy an equivalent
+    <p>
+      In this and all below charts, all $1 USD is equivalent to $1 PPP (roughly speaking, $1 PPP can buy an equivalent
       amount of food and other vital goods in the US as it can in China).
     </p>
-    <p> The data depicted comes from 2013 and paints a harrowing picture of the world: half the individuals earned less
+    <p>
+      The data depicted comes from 2013 and paints a harrowing picture of the world: half the individuals earned less
       than $2,000 per year. Almost a third of the people had less than $1,000 to spend for the whole year, that's less
       than $3 per day on average!
     </p>
-    <p> There is some good news: every point on this graph is higher than it was a decade ago (though some individuals
+    <p>
+      There is some good news: every point on this graph is higher than it was a decade ago (though some individuals
       rearranged their order).
     </p>
-    <p> Data challenges
-    </p>
-    <p> Data collection is challenging in numerous ways, and the process of aggregating and comparing incomes results in
+    <h2>
+      Data challenges
+    </h2>
+    <p>
+      Data collection is challenging in numerous ways, and the process of aggregating and comparing incomes results in
       final measures that are inexact. Measurements may be collected as income or as consumption; since the graph
       includes all people on earth, parents' income is split evenly across dependents in a household; data from nearby
       years may be substituted when a year's data is not available; inflation might inflate or deflate some incomes;
-      etc. For a further discussion and data source information see data sources and methodology.
+      etc. For a further discussion and data source information see data sources and methodology<span id="n3" title="click to see the reference" class="reference-link">[3]</span>.
+
     </p>
-    <p> The takeaway is that we are not able to state precisely, for example, what amount the person exactly in the
+    
+    <div title="click to hide this reference" id="ref3" class="reference">
+      <p><span class="reference-link">[3]</span>
+        See the FAQ for a further discussion.
+        <br>
+        <a href="FAQ.html">
+          https://???.com/FAQ
+        </a>
+      </p>
+    </div>
+
+    <p>
+      The takeaway is that we are not able to state precisely, for example, what amount the person exactly in the
       middle is earning. Nevertheless, the data is good enough to see general trends and to grasp a global picture.
     </p>
-    <p> Zooming in: Finding insights about the world from the data.
-    </p>
-    <p> Around 2011, in America, "we are the 99%" became a slogan expressing frustration at the felt inequality between
+    <h2>
+      Zooming in: Finding insights about the world from the data.
+    </h2>
+    <p>
+      Around 2011, in America, "we are the 99%" became a slogan expressing frustration at the felt inequality between
       the richest 1% and the rest of the people in the United States. According to the 2013 data, earning more than
       $44,000 would place one in the top 1% of the world's income earners.
     </p>
-    <p> In 2013, the US poverty line for a single individual was $11,490. Meeting one's living needs on less than $1,000
+    <p>
+      In 2013, the US poverty line for a single individual was $11,490. Meeting one's living needs on less than $1,000
       per month is a demanding challenge. Unfortunately, this was the reality for about 86% of the world's population.
     </p>
-    <p> [Fig 2. - below US poverty]
-    </p>
-    <p> Another way to look at the data is to plot a histogram: roughly speaking imagine grouping individuals into
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [Fig 2. - below US poverty]
+    </div>
+    <p>
+      Another way to look at the data is to plot a <em>histogram</em>: roughly speaking imagine grouping individuals
+      into
       categories (e.g. a group of everyone between $100 and $200) and drawing a vertical bar proportionately high.
     </p>
-    <p> [Fig 3. - histogram]
-    </p>
-    <p> The y-axis is unimportant (it depends on the width of the interval chosen); the purpose is to show where how the
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [Fig 3. - histogram]
+    </div>
+    <p>
+      The y-axis is unimportant (it depends on the width of the interval chosen); the purpose is to show where how the
       lowest-income 86% of the world are distributed.
     </p>
-    <p>
+    <h3>
       Some takeaways:
-      <ul>
-        <li>the incomes of people in the world are immensely unequal (if everyone's income was equal, this graph would
-          be a horizontal line)
-        </li>
-        <li>middle class individuals in developed countries like the US actually earn more than 90% of the world's
-          individuals and many multiples of what those in the bottom half earn
-        </li>
-        <li>many people in the world live in serious absolute poverty, surviving on as little as a hundredth of the
-          income of those in the developed nations' upper-middle class.[1]
-        </li>
-      </ul>
-    </p>
-    <p>
-      [1] https://80000hours.org/2017/04/how-accurately-does-anyone-know-the-global-distribution-of-income/
-    </p>
-    <p>
+    </h3>
+    <ul>
+      <li>the incomes of people in the world are immensely unequal (if everyone's income was equal, this graph would
+        be a horizontal line)
+      </li>
+      <li>middle class individuals in developed countries like the US actually earn more than 90% of the world's
+        individuals and many multiples of what those in the bottom half earn
+      </li>
+      <li>many people in the world live in serious absolute poverty, surviving on as little as a hundredth of the
+        income of those in the developed nations' upper-middle class.<span id="n4" title="click to see the reference" 
+        class="reference-link">[4]</span>
+      </li>
+    </ul>
+
+    <div title="click to hide this reference" id="ref4" class="reference">
+      <p><span class="reference-link">[4]</span>
+        80,000 Hours - How accurately does anyone know the global distribution of income?
+        <br>
+        <a href="https://80000hours.org/2017/04/how-accurately-does-anyone-know-the-global-distribution-of-income/">
+        https://80000hours.org/2017/04/how-accurately-does-anyone-know-the-global-distribution-of-income/
+        </a>
+      </p>
+    </div>
+
+    <h2>
       Comparing countries
-    </p>
+    </h2>
     <p>
       Income inequality exists in all countries: simply comparing the averages (mean) or the middle (mean) income of two
       countries tells us little about how the lowest or highest income earners are doing: we get a very shallow picture
       of life in those countries. Having data with income distribution from two countries allows us to compare an
       important feature of life within and between the countries in a more fine-grained way.
     </p>
-    <p> All charts below are generated from a dataset[1] compiled by Branko Milanovic, replicating his clever way of
-      comparing across countries. The data is of 106 countries where each country's population is split into 5%
+    <p>
+      All charts below are generated from a dataset<span id="n5" title="click to see the reference" 
+      class="reference-link">[5]</span> compiled by Branko Milanovic, replicating his clever way of
+      comparing across countries<span id="n6" title="click to see the reference" class="reference-link">[6]</span>. 
+      The data is of 106 countries where each country's population is split into 5%
       intervals and arranged by income.
     </p>
-    <p> [1]
-      https://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Stone-Center-on-Socio-Economic-Inequality/Core-Faculty,-Team,-and-Affiliated-LIS-Scholars/Branko-Milanovic/Datasets
-    </p>
-    <p> [2]
-      https://www.gc.cuny.edu/CUNY_GC/media/CUNY-Graduate-Center/PDF/Centers/LIS/Milanovic/papers/2007/soundings.pdf
-    </p>
-    <p>
+
+    <div title="click to hide this reference" id="ref5" class="reference">
+      <p><span class="reference-link">[5]</span>
+        Branko Milanovic - 2011 dataset
+        <br>
+        <a href="https://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Stone-Center-on-Socio-Economic-Inequality/Core-Faculty,-Team,-and-Affiliated-LIS-Scholars/Branko-Milanovic/Datasets">
+        https://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Centers-and-Institutes/Stone-Center-on-Socio-Economic-Inequality/Core-Faculty,-Team,-and-Affiliated-LIS-Scholars/Branko-Milanovic/Datasets
+        </a>
+      </p>
+    </div>
+
+    <div title="click to hide this reference" id="ref6" class="reference">
+      <p><span class="reference-link">[6]</span>
+        Branko Milanovic - Global Income Inequality
+        <br>
+        <a href="https://www.gc.cuny.edu/CUNY_GC/media/CUNY-Graduate-Center/PDF/Centers/LIS/Milanovic/papers/2007/soundings.pdf">
+        https://www.gc.cuny.edu/CUNY_GC/media/CUNY-Graduate-Center/PDF/Centers/LIS/Milanovic/papers/2007/soundings.pdf
+        </a>
+      </p>
+    </div>
+
+    <h2>
       Data processing:
+    </h2>
+    <p>
+      The data the graphs are based on were collected 2009 - 2012; incomes were converted to PPP using 2011 data (from
+      a separate dataset)<span id="n7" title="click to see the reference" class="reference-link">[7]</span>, 
+      and plotted against the 2013 world income distribution from the first dataset <span id="n8" 
+      title="click to see the reference" class="reference-link">[8]</span>.
     </p>
-    <p> The data the graphs are based on were collected 2009 - 2012; incomes were converted to PPP using 2011 data (from
-      a separate dataset)[3], and plotted against the 2013 world income distribution from the first dataset [4].
-    </p>
-    <p> [3] https://data.worldbank.org/indicator/PA.NUS.PPP
-    </p>
-    <p> [4] Tomas Hellebrandt and Paolo Mauro
-      https://piie.com/publications/working-papers/future-worldwide-income-distribution
-    </p>
-    <p> The previously mentioned data challenges still apply, so every graph should be understood as imprecise,
+
+    <div title="click to hide this reference" id="ref7" class="reference">
+      <p><span class="reference-link">[7]</span>
+        World Bank
+        <br>
+        <a
+          href="https://data.worldbank.org/indicator/PA.NUS.PPP">
+          https://data.worldbank.org/indicator/PA.NUS.PPP
+        </a>
+      </p>
+    </div>
+
+    <div title="click to hide this reference" id="ref8" class="reference">
+      <p><span class="reference-link">[8]</span>
+        Tomas Hellebrandt and Paolo Mauro
+        <br>
+        <a
+          href="https://piie.com/publications/working-papers/future-worldwide-income-distribution">
+          https://piie.com/publications/working-papers/future-worldwide-income-distribution
+        </a>
+      </p>
+    </div>
+
+    <p>
+      The previously mentioned data challenges still apply, so every graph should be understood as imprecise,
       especially comparing between countries. Nevertheless, the vast differences in income dwarf the imprecision that
       comes from all other factors. For example, let's see how Germany compares to India.
     </p>
-    <p> [Fig 4 - two countries linear income scale - y axis USD]
-    </p>
-    <p> Reading the graph we can approximate that about half of individuals living in Germany in 2011 earned more than
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [Fig 4 - two countries linear income scale - y axis USD]
+    </div>
+    <p>
+      Reading the graph we can approximate that about half of individuals living in Germany in 2011 earned more than
       $16,000 {CONFIRM BEFORE PUBLISH} and about a quarter earned less than $11,490 (what is considered poverty in the
       US in 2013).
     </p>
-    <p> Please note that because the data contains averages for groups containing 5% of the population, the graphed line
+    <p>
+      Please note that because the data contains averages for groups containing 5% of the population, the graphed line
       starts at 2.5% and ends at 97.5% of the population. We do not have enough data in this dataset to make claims
       about people outside of that range.
     </p>
-    <p> Because of income inequality, the vertical axis is mostly used to show the higher income country, making the low
+    <p>
+      Because of income inequality, the vertical axis is mostly used to show the higher income country, making the low
       income country graph hard to decipher.
     </p>
-    <p> We will now re-scale the y-axis in a way that gives more room to lower income countries (to better see the
+    <p>
+      We will now re-scale the y-axis in a way that gives more room to lower income countries (to better see the
       distribution), and to focus less on the incomes of the very small fraction of the highest earners. Rather than
       using a logarithmic scale, the y-axis will be based on percentile from the first chart we saw.
     </p>
-    <p> [fig 4 - two countries percentile income scale - y-axis ONLY percentiles]
-    </p>
-    <p> We can now clearly see that the bottom income earners in Germany earn more than even the highest income earners
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [fig 4 - two countries percentile income scale - y-axis ONLY percentiles]
+    </div>
+    <p>
+      We can now clearly see that the bottom income earners in Germany earn more than even the highest income earners
       in India. Additionally, the curve of Indian income distribution is more articulated. With data represented thus,
       we can infer, for example, that over 95% of individuals in Germany earn more than 80% of the individuals in the
       world. As for India, for example, only 10% of the income earners earn more than 50% of individuals in the world.
     </p>
-    <p> We now combine both, absolute PPP dollar measure of income with the percentile data:
+    <p>
+      We now combine both, absolute PPP dollar measure of income with the percentile data:
     </p>
-    <p> [fig 5 - two countries percentile income scale - TWO scales present, both evenly spaced]
-    </p>
-    <p> We see on the y-axis that the scale is linear with respect to percentiles, it is not linear with respect to
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [fig 5 - two countries percentile income scale - TWO scales present, both evenly spaced]
+    </div>
+    <p>
+      We see on the y-axis that the scale is linear with respect to percentiles, it is not linear with respect to
       absolute income. For ease of reading and comparison, we will choose several dollar values to indicate on the
       y-axis:
     </p>
-    <p> [fig 6 - two countries percentile income scale - TWO scales - specific dollars chosen]
-    </p>
-    <p> This is hopefully the clearest way to present this very dense information. There are 107 countries in the
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [fig 6 - two countries percentile income scale - TWO scales - specific dollars chosen]
+    </div>
+    <p>
+      This is hopefully the clearest way to present this very dense information. There are 107 countries in the
       dataset so here's a graph of all of them at once.
     </p>
-    <p> [fig 7 - all countries in the dataset - TWO scales - specific dollars chosen]
+    <div class="figure">
+      <img src='./images/1.jpg'>
+      <br>
+      [fig 7 - all countries in the dataset - TWO scales - specific dollars chosen]
+    </div>
+    <p>
+      I hope you find eye-opening insights about our world as you explore the dataset below.
     </p>
-    <p> I hope you find eye-opening insights about our world as you explore the dataset below.
-    </p>
-  </div>
+  </article>
+
 
   <div class="map-container preview-chart">
     <div class="map">MAP LOADING ERROR</div>
@@ -231,5 +354,17 @@
   <script src="my_map.js"></script>
 
   <script src="my_chart.js"></script>
+
+  <script>
+
+    for (let i=1; i < 10; i++) {
+      $("#n" + i).click(function () {
+        $("#ref" + i).slideToggle("fast");
+      });
+      $("#ref" + i).click(function () {
+        $("#ref" + i).slideToggle("fast");
+      });
+    }
+  </script>
 
 </body>
