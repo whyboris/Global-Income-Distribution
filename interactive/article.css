@@ -151,3 +151,11 @@ ul li ul li {
   margin-bottom: 0px;
   text-indent: -6px;
 }
+
+.footer {
+  font-size: 80%;
+}
+
+.cursor-initial {
+  cursor: initial;
+}
