@@ -28,4 +28,4 @@ Files are numbered for convenience and in rough chronological order:
 
 04 - Generate the js dictionaries to convert between ISO2, ISO3, and country names on the website
 
-XX - archived file exploring the 2005 income distribution (dataset comes from Branko Milanovic but is not included in repository)
+See the *archive* folder for the initial exploration with 2005 data
