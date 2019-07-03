@@ -22,4 +22,6 @@ Files are numbered for convenience and in rough chronological order:
 
 01 - Generates the 1st, 2nd, and 3rd figures on the website
 
-02 - Generates the 4th - 8th figures
+02 - Generates the 4th - 8th figures, export csv with coordinate data for the interactive graph
+
+03 - Process csv from above step into correct format for interactive graph library
