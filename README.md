@@ -25,3 +25,7 @@ Files are numbered for convenience and in rough chronological order:
 02 - Generates the 4th - 8th figures, export csv with coordinate data for the interactive graph
 
 03 - Process csv from above step into correct format for interactive graph library
+
+04 - Generate the js dictionaries to convert between ISO2, ISO3, and country names on the website
+
+XX - archived file exploring the 2005 income distribution (dataset comes from Branko Milanovic but is not included in repository)
