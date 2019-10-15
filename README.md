@@ -1,12 +1,14 @@
 # Data Visualization Challenge: Visualize Inequality
 
-This repository contains the code used to generate a submission that won [3rd place](http://hdr.undp.org/en/content/2019-human-development-data-visualization-challenge-winner-gender-inequality-visual-story) in the [Data Visualization Challenge](http://hdr.undp.org/en/data-visualization-challenge-2019) organized by the _United Nations Development Programme Human Development Reports_. 
+This repository contains the code used to generate a submission that won [3rd place](http://hdr.undp.org/en/content/2019-human-development-data-visualization-challenge-winner-gender-inequality-visual-story) in the [Data Visualization Challenge](http://hdr.undp.org/en/data-visualization-challenge-2019) organized by the _United Nations Development Programme Human Development Reports_.
 
 The submission lives at [income-inequality.info](http://income-inequality.info)
 
 ![Income Inequality](https://raw.githubusercontent.com/whyboris/income-inequality.info/master/images/7.png)
 
 The website files are located in another GitHub repository: [Income-Inequality](https://github.com/whyboris/income-inequality.info)
+
+To launch a live interactive version: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/whyboris/Global-Income-Distribution/master)
 
 To report errors, ask questions, or offer corrections, please use the _Issues_ section on this or the other repository.
 
@@ -30,7 +32,7 @@ Files are numbered for convenience and in rough chronological order:
 
 See the *archive* folder for the initial exploration with 2005 data
 
-## For non-programmers who want to try 
+## For non-programmers who want to try
 
 Coding is likely less scary than you think. Getting everything above to work will just take some research and patience.
 
