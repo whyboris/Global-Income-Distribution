@@ -8,7 +8,7 @@ The submission lives at [income-inequality.info](http://income-inequality.info)
 
 The website files are located in another GitHub repository: [Income-Inequality](https://github.com/whyboris/income-inequality.info)
 
-To launch a live interactive version: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/whyboris/Global-Income-Distribution/master)
+To launch a live interactive version: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/whyboris/Global-Income-Distribution/master?urlpath=lab)
 
 To report errors, ask questions, or offer corrections, please use the _Issues_ section on this or the other repository.
 
